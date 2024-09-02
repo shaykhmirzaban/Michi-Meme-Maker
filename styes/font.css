@@ -1,0 +1,9 @@
+@font-face {
+  font-family: bitterExtraBold;
+  src: url("../fonts/Bitter/Bitter-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: bitterBold;
+  src: url("../fonts/Bitter/Bitter-Bold.ttf");
+}

@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meme Maker</title>
+
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="./styes/style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvg@3.0.7/lib/umd.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script> -->
+    <script src="//daybrush.com/moveable/release/latest/dist/moveable.min.js"></script>
+  </head>
+  <body class="noSelect">
+    <!-- header -->
+    <!-- ====== -->
+    <nav>
+      <div class="center_content">
+        <div class="logo">
+          <img src="./images/logo/logo.webp" alt="" />
+        </div>
+
+        <h1>michi</h1>
+      </div>
+    </nav>
+
+    <!-- center text -->
+    <!-- =========== -->
+    <div class="centerText">
+      <h1>Michi Meme Maker</h1>
+    </div>
+
+    <section class="mainSection">
+      <div class="center_content">
+        <div class="leftSide">
+          <!-- displayArea -->
+          <div class="displayAreaMain">
+            <div class="displayArea" id="displayAreaScreen">
+              <img
+                src="./images/background/1.png"
+                alt=""
+                class="backgroundImage"
+              />
+              <img
+                src="./images/Cat/2.png"
+                alt=""
+                id="arrow"
+                class="catImage"
+              />
+            </div>
+          </div>
+          <div class="options">
+            <!-- reset michi -->
+            <button class="resetBTN">
+              <svg
+                stroke="currentColor"
+                fill="none"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-primary"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M10 2h4"></path>
+                <path d="M12 14v-4"></path>
+                <path d="M4 13a8 8 0 0 1 8-7 8 8 0 1 1-5.3 14L4 17.6"></path>
+                <path d="M9 17H4v5"></path>
+              </svg>
+              RESET MICHI
+            </button>
+            <button class="generateRandomBTN">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                class="w-5 h-5 text-primary"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M504.971 359.029c9.373 9.373 9.373 24.569 0 33.941l-80 79.984c-15.01 15.01-40.971 4.49-40.971-16.971V416h-58.785a12.004 12.004 0 0 1-8.773-3.812l-70.556-75.596 53.333-57.143L352 336h32v-39.981c0-21.438 25.943-31.998 40.971-16.971l80 79.981zM12 176h84l52.781 56.551 53.333-57.143-70.556-75.596A11.999 11.999 0 0 0 122.785 96H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12zm372 0v39.984c0 21.46 25.961 31.98 40.971 16.971l80-79.984c9.373-9.373 9.373-24.569 0-33.941l-80-79.981C409.943 24.021 384 34.582 384 56.019V96h-58.785a12.004 12.004 0 0 0-8.773 3.812L96 336H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h110.785c3.326 0 6.503-1.381 8.773-3.812L352 176h32z"
+                ></path>
+              </svg>
+              GENERATE RANDOM
+            </button>
+            <button class="downloadBtn">
+              <div class="loader"></div>
+
+              <div class="downloadBTNcontent">
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  class="w-5 h-5 text-[#FDF6E7]"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"
+                  ></path>
+                </svg>
+                DOWNLOAD
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="rightSide">
+          <div class="heading">
+            <h1>CREATE YOUR MICHI</h1>
+          </div>
+
+          <div class="allSlider">
+            <div class="selectYourMedia">
+              <div class="uploadImage">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                  <path
+                    d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 38.6C310.1 219.5 256 287.4 256 368c0 59.1 29.1 111.3 73.7 143.3c-3.2 .5-6.4 .7-9.7 .7L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zm48 96a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm16 80c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 48-48 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 0 48c0 8.8 7.2 16 16 16s16-7.2 16-16l0-48 48 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0 0-48z"
+                  />
+                </svg>
+                <p>Upload Image</p>
+              </div>
+
+              <input type="file" id="imageUpload" accept="image/*" />
+            </div>
+
+            <div class="textTypingArea">
+              <div class="topText">
+                <p>Top Text:</p>
+                <input type="text" placeholder="typing...." id="topTextVal" />
+              </div>
+
+              <div class="bottomText">
+                <p>Bottom Text:</p>
+                <input type="text" placeholder="typing...." id="bottomTextVal" />
+              </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="mainSwiper">
+              <h1>Cat</h1>
+              <div class="sliderWrapper">
+                <div class="swiper-button-prev">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="previousSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="swiper mySwiper">
+                  <div class="swiper-wrapper catList">
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/1.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide activeItem">
+                      <img src="./images/Cat/2.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/3.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/4.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/5.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/6.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/7.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/8.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/9.png" alt="" class="catImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/10.png" alt=" class="catImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/Cat/11.png" alt=" class="catImage"" />
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="nextSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="mainSwiper">
+              <h1>Hat</h1>
+              <div class="sliderWrapper">
+                <div class="swiper-button-prev01">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="previousSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="swiper mySwiper01">
+                  <div class="swiper-wrapper hatList">
+                    <div class="swiper-slide activeItem">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="nothing"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372 0-89 31.3-170.8 83.5-234.8l523.3 523.3C682.8 852.7 601 884 512 884zm288.5-137.2L277.2 223.5C341.2 171.3 423 140 512 140c205.4 0 372 166.6 372 372 0 89-31.3 170.8-83.5 234.8z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/1.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/2.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/3.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/4.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/5.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/6.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/7.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/8.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/9.png" alt="" class="hatImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/10.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/11.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/12.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/13.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/14.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/15.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/16.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/17.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/18.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/19.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/20.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/21.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/22.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/23.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/24.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/25.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/26.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/27.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/28.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/29.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/30.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/31.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/32.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/33.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/34.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/35.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/36.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/37.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/38.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/39.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/40.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/41.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/42.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/43.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/44.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/45.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/46.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/47.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/48.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/49.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/50.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/51.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/52.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/53.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/54.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/55.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/56.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/57.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/58.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/59.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/60.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/61.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/62.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/63.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/64.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/65.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/66.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/67.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/68.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/69.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/70.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/71.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/72.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/73.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/74.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/75.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/76.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/77.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/78.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/79.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/80.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/81.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/82.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/83.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/84.png" alt=" class="hatImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/hats/85.png" alt=" class="hatImage"" />
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next01">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="nextSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="mainSwiper">
+              <h1>Face</h1>
+              <div class="sliderWrapper">
+                <div class="swiper-button-prev02">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="previousSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="swiper mySwiper02">
+                  <div class="swiper-wrapper faceList">
+                    <div class="swiper-slide activeItem">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        height="1em"
+                        width="1em"
+                        class="nothing"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372 0-89 31.3-170.8 83.5-234.8l523.3 523.3C682.8 852.7 601 884 512 884zm288.5-137.2L277.2 223.5C341.2 171.3 423 140 512 140c205.4 0 372 166.6 372 372 0 89-31.3 170.8-83.5 234.8z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/1.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/2.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/3.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/4.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/5.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/6.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/7.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/8.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/9.png" alt="" class="faceImage" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/10.png" alt=" class="faceImage""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/11.png" alt=" class="faceImage""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/12.png" alt=" class="faceImage""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/13.png" alt=" class="faceImage""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/14.png" alt=" class="faceImage""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/15.png" alt=" class="faceImage""
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/face/16.png" alt=" class="faceImage""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next02">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="nextSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="mainSwiper">
+              <h1>Front Accessory</h1>
+              <div class="sliderWrapper">
+                <div class="swiper-button-prev03">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="previousSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="swiper mySwiper03">
+                  <div class="swiper-wrapper frontAccessoryList">
+                    <div class="swiper-slide activeItem">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="nothing"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372 0-89 31.3-170.8 83.5-234.8l523.3 523.3C682.8 852.7 601 884 512 884zm288.5-137.2L277.2 223.5C341.2 171.3 423 140 512 140c205.4 0 372 166.6 372 372 0 89-31.3 170.8-83.5 234.8z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/1.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/2.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/3.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/4.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/5.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/6.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/7.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/8.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/front-accessories/9.png"
+                        alt=""
+                        class="frontAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/10.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/11.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/12.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/13.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/14.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/15.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/16.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/17.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/18.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/19.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/20.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/21.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/22.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/23.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/24.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/25.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/26.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/27.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/28.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/29.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/30.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/31.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/32.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/33.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/34.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/35.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/36.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/37.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/38.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/39.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/40.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/41.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/42.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/43.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/44.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/45.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/46.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/47.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/48.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/49.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/50.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/51.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/52.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/53.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/front-accessories/54.png" alt="
+                      class="frontAccessoryImage"" />
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next03">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="nextSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="mainSwiper">
+              <h1>Back Accessory</h1>
+              <div class="sliderWrapper">
+                <div class="swiper-button-prev04">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="previousSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="swiper mySwiper04">
+                  <div class="swiper-wrapper backAccessoryList">
+                    <div class="swiper-slide activeItem">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        height="1em"
+                        width="1em"
+                        class="nothing"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372 0-89 31.3-170.8 83.5-234.8l523.3 523.3C682.8 852.7 601 884 512 884zm288.5-137.2L277.2 223.5C341.2 171.3 423 140 512 140c205.4 0 372 166.6 372 372 0 89-31.3 170.8-83.5 234.8z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/1.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/2.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/3.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/4.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/5.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/6.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/7.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/8.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/back-accessories/9.png"
+                        alt=""
+                        class="backAccessoryImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/back-accessories/10.png" alt="
+                      class="backAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/back-accessories/11.png" alt="
+                      class="backAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/back-accessories/12.png" alt="
+                      class="backAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/back-accessories/13.png" alt="
+                      class="backAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/back-accessories/14.png" alt="
+                      class="backAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/back-accessories/15.png" alt="
+                      class="backAccessoryImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/back-accessories/16.png" alt="
+                      class="backAccessoryImage"" />
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next04">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="nextSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="mainSwiper">
+              <h1>Pant</h1>
+              <div class="sliderWrapper">
+                <div class="swiper-button-prev05">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="previousSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="swiper mySwiper05">
+                  <div class="swiper-wrapper pantList">
+                    <div class="swiper-slide activeItem">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        height="1em"
+                        width="1em"
+                        class="nothing"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372 0-89 31.3-170.8 83.5-234.8l523.3 523.3C682.8 852.7 601 884 512 884zm288.5-137.2L277.2 223.5C341.2 171.3 423 140 512 140c205.4 0 372 166.6 372 372 0 89-31.3 170.8-83.5 234.8z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/1.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/2.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/3.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/4.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/5.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/6.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/7.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/8.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/pants/9.png"
+                        alt=""
+                        class="pantImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/pants/10.png" alt=" class="pantImage""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next05">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="nextSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="mainSwiper">
+              <h1>Outfit</h1>
+              <div class="sliderWrapper">
+                <div class="swiper-button-prev06">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="previousSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="swiper mySwiper06">
+                  <div class="swiper-wrapper outfitList">
+                    <div class="swiper-slide activeItem">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        height="1em"
+                        width="1em"
+                        class="nothing"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372 0-89 31.3-170.8 83.5-234.8l523.3 523.3C682.8 852.7 601 884 512 884zm288.5-137.2L277.2 223.5C341.2 171.3 423 140 512 140c205.4 0 372 166.6 372 372 0 89-31.3 170.8-83.5 234.8z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/1.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/2.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/3.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/4.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/5.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/6.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/7.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/8.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/outfit/9.png"
+                        alt=""
+                        class="outfitImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/10.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/11.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/12.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/13.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/14.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/15.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/16.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/17.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/18.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/19.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/20.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/21.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/22.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/23.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/24.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/25.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/26.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/27.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/28.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/29.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/30.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/31.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/32.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/33.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/34.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/35.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/36.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/37.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/38.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/39.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/40.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/41.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/42.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/43.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/44.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/45.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/46.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/47.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/48.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/49.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/50.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/51.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/52.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/53.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/54.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/55.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/56.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/57.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/58.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/59.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/60.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/61.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/62.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/63.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/64.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/65.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./images/outfit/66.png" alt="
+                      class="outfitImage"" />
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next06">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="nextSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="mainSwiper">
+              <h1>Background</h1>
+              <div class="sliderWrapper">
+                <div class="swiper-button-prev07">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="previousSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="swiper mySwiper07">
+                  <div class="swiper-wrapper backgroundList">
+                    <div class="swiper-slide activeItem">
+                      <img
+                        src="./images/background/1.png"
+                        alt=""
+                        class="backgroundImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/background/2.png"
+                        alt=""
+                        class="backgroundImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/background/3.png"
+                        alt=""
+                        class="backgroundImage"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./images/background/4.png"
+                        alt=""
+                        class="backgroundImage"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next07">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="nextSlider"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- <script type="module" src="./scripts/funcatinality.js"></script> -->
+    <script type="module" src="./scripts/script.js"></script>
+  </body>
+</html>
